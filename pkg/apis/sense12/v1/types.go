@@ -21,11 +21,18 @@ type AppService struct {
 	Status            AppServiceStatus `json:"status,omitempty"`
 }
 
+type ContainerPort struct {
+	Name string `json:"name"`
+	Port int32  `json:"containerPort"`
+}
+
 type AppServiceSpec struct {
 	// Name of the application
 	Name string `json:"name"`
 	// Docker image name including tag
 	Image string `json:"image"`
+	// Main port that the App is exposing
+	Ports []ContainerPort `json:"ports"`
 }
 
 type AppServiceStatus struct {

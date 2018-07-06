@@ -20,3 +20,9 @@ spec:
               type: string
             image:
               type: string
+            ports:
+              properties:
+                name:
+                  type: string
+                port:
+                  type: integer

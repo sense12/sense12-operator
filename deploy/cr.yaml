@@ -1,7 +1,10 @@
 apiVersion: "sense12.com/v1"
 kind: "AppService"
 metadata:
-  name: "example"
+  name: "users-api"
 spec:
   name: "users-api"
   image: "senses12/users-api:latest"
+  ports:
+  - name: http
+    port: 5000

@@ -4,10 +4,9 @@ import (
 	"context"
 	"runtime"
 
-	stub "github.com/sense12/sense12-operator/pkg/stub"
 	sdk "github.com/operator-framework/operator-sdk/pkg/sdk"
-	k8sutil "github.com/operator-framework/operator-sdk/pkg/util/k8sutil"
 	sdkVersion "github.com/operator-framework/operator-sdk/version"
+	stub "github.com/sense12/sense12-operator/pkg/stub"
 
 	"github.com/sirupsen/logrus"
 )
@@ -23,10 +22,7 @@ func main() {
 
 	resource := "sense12.com/v1"
 	kind := "AppService"
-	namespace, err := k8sutil.GetWatchNamespace()
-	if err != nil {
-		logrus.Fatalf("Failed to get watch namespace: %v", err)
-	}
+	namespace := "default"
 	resyncPeriod := 5
 	logrus.Infof("Watching %s, %s, %s, %d", resource, kind, namespace, resyncPeriod)
 	sdk.Watch(resource, kind, namespace, resyncPeriod)
