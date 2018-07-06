@@ -1,0 +1,7 @@
+apiVersion: "sense12.com/v1"
+kind: "AppService"
+metadata:
+  name: "example"
+spec:
+  name: "users-api"
+  image: "senses12/users-api:latest"

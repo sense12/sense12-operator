@@ -1,0 +1,3 @@
+apiVersion: sense12.com/v1
+kind: AppService
+projectName: sense12-operator
