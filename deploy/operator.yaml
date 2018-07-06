@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sense12-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: sense12-operator
+  template:
+    metadata:
+      labels:
+        name: sense12-operator
+    spec:
+      containers:
+        - name: sense12-operator
+          image: sense12/sense12-operator:0.1.0
+          command:
+          - sense12-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
